@@ -1,0 +1,15 @@
+var quotes = [
+	"a.",
+	"b.",
+	"c."
+];
+
+var counter = 0;
+
+var getPrev = function() {
+	//counting backwards
+	if(counter == 0) {
+		counter = (quotes.length - 1);
+		//can console the previouse value here - console.log();
+	}
+};
