@@ -17,5 +17,5 @@ var label1 = Titanium.UI.createLabel({
 
 win1.add(label1);
 
-var week1Js = require("home");
+var homeJs = require("home");
 win1.open();

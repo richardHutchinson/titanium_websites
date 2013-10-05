@@ -22,6 +22,7 @@ var getPrev = function() {
 var getNext = function() {
 	if(counter === (quotes.length - 1)) {
 		counter = 0;
+		//alert(text.text); //note: first text is the label and the second text is the key
 		text.text = counter + 1 + '. "' + quotes[counter] + '"';
 	}else {
 		counter++;
@@ -58,7 +59,7 @@ var previous = Ti.UI.createView({
 	backgroundColor: "#483"
 });
 
-var previousText = Ti.UI.createView({
+var previousText = Ti.UI.createLabel({
 	color: "#000",
 	text: "Previous",
 	font: {
@@ -75,7 +76,7 @@ var next = Ti.UI.createView({
 	backgroundColor: "#483"
 });
 
-var nextText = Ti.UI.createView({
+var nextText = Ti.UI.createLabel({
 	color: "#000",
 	text: "Next",
 	font: {
