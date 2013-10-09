@@ -1,7 +1,0 @@
-var quotes = [
-	"a.",
-	"b.",
-	"c."
-];
-
-var counter = 0;
