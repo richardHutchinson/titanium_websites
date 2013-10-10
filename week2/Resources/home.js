@@ -1,6 +1,6 @@
 var games = {
 	"RTS": {
-		"title": "Real Time Strategy",
+		"headerTitle": "Real Time Strategy",
 		"footerTitle": "Real Time Strategy(R.T.S.)",
 		"gameList": [
 			{
@@ -14,7 +14,7 @@ var games = {
 		]
 	},
 	"RPG": {
-		"title": "Role Playing Game",
+		"headerTitle": "Role Playing Game",
 		"footerTitle": "Role Playing Game(R.P.G.)",
 		"gameList": [
 			{
@@ -32,43 +32,37 @@ var games = {
 var tableView = Ti.UI.createTableView({
 	style: Ti.UI.iPhone.TableViewStyle.GROUPED,
 	scrollable: true,
-	extendEdges: [Ti.UI.EXTEND_EDGE_BOTTOM]
+	//color: "#fff",
+	backgroundColor: "#511"
 });
 
-var win2 = Ti.UI.createWindow({
-	title: "My Games",
-	modal: true,
-	backgroundColor: "#444"
-	//backgroundImage: "appbg.png"
-});
-
-var navGroup = Ti.UI.iOS.createNavigationWindow({ //note: this line may be depricated
-	window: win2
+var navGroup = Ti.UI.iOS.createNavigationWindow({
+	window: win1
 });
 
 var getData = function() {
 	var tableWindow = Ti.UI.createWindow({
 		title: this.title,
 		modal: true,
-		backgroundColor: "#999"
+		backgroundColor: "#511"
 		//backgroundImage: "appbg.png"
 	});
 	
 	var label = Ti.UI.createLabel({
-		text: this.text,
+		text: this.desc,
 		font: {
-			fontSize: 18,
+			fontSize: 12,
 			fontFamily: "Arial"
 		},
-		color: "#538",
+		color: "#955",
 		top: 10,
 		left: 10,
 		right: 10
 	});
 	
 	tableWindow.add(label);
-	navGroup.openWindow(tableWindow, {animation: true}); //note: this will animate the first buttons slide from the main window
-	alert("test");
+	navGroup.openWindow(tableWindow, {animation: true}); //note: this will animate the first button slide from the main window
+	//alert("Second window opened.");
 };
 
 var makeTable = function() {
@@ -76,27 +70,34 @@ var makeTable = function() {
 	
 	for(n in games) {
 		var tableSection = Ti.UI.createTableViewSection({
-			headerTitle: games[n].title,
-			footerTitle: games[n].footerTitle
+			headerTitle: games[n].headerTitle,
+			footerTitle: games[n].footerTitle,
+			color: "#944"
 		});
 		
 		for(q in games[n]["gameList"]) {
 			var theRow = Ti.UI.createTableViewRow({
 				title: games[n].gameList[q].name,
-				text: games[n].gameList[q].description,
-				hasChild: true
+				desc: games[n].gameList[q].description,
+				hasChild: true,
+				color: "#944",
+				backgroundColor: "#521"
 			});
 			
-			//console.log(theRow.title);
-			theRow.addEventListener("click", getData);
+			//console.log(theRow.title); //row title data
 			tableSection.add(theRow);
+			theRow.addEventListener("click", getData);
 		}
+		
 		tSections.push(tableSection);
+		
 	}
 	
 	tableView.setData(tSections);
+	
 };
 
 makeTable();
-win2.add(tableView);
+
+win1.add(tableView);
 navGroup.open();
