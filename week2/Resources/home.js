@@ -33,7 +33,9 @@ var tableView = Ti.UI.createTableView({
 	style: Ti.UI.iPhone.TableViewStyle.GROUPED,
 	scrollable: true,
 	//color: "#fff",
-	backgroundColor: "#511"
+	backgroundColor: "#400"
+	//tintColor: "#999"
+	//barColor: "#888"
 });
 
 var navGroup = Ti.UI.iOS.createNavigationWindow({
@@ -44,7 +46,7 @@ var getData = function() {
 	var tableWindow = Ti.UI.createWindow({
 		title: this.title,
 		modal: true,
-		backgroundColor: "#511"
+		backgroundColor: "#400"
 		//backgroundImage: "appbg.png"
 	});
 	
@@ -72,7 +74,12 @@ var makeTable = function() {
 		var tableSection = Ti.UI.createTableViewSection({
 			headerTitle: games[n].headerTitle,
 			footerTitle: games[n].footerTitle,
-			color: "#944"
+			color: "#944",
+			font: {
+				fontSize: 20,
+				fontWeight: "bold"
+			},
+			barColor: "#900"
 		});
 		
 		for(q in games[n]["gameList"]) {
@@ -80,8 +87,12 @@ var makeTable = function() {
 				title: games[n].gameList[q].name,
 				desc: games[n].gameList[q].description,
 				hasChild: true,
-				color: "#944",
-				backgroundColor: "#521"
+				color: "#888",
+				backgroundColor: "#511",
+				font: {
+					fontWeight: "bold",
+					fontFamily: "futura"
+				}
 			});
 			
 			//console.log(theRow.title); //row title data
