@@ -42,19 +42,9 @@ var navGroup = Ti.UI.iOS.createNavigationWindow({
 
 var getData = function() {
 	var tableWindow = Ti.UI.createWindow({
-		//title: this.title,
+		title: this.title,
 		modal: true,
 		barColor: "#888",
-		titleControl: Ti.UI.createLabel({
-			text: this.title,
-			color: "#811",
-			font: {
-				fontSize: 15,
-				fontWeight: "bold"
-			}
-			//width: "auto"
-			//backgroundColor: "#fff"
-		}),
 		backgroundColor: "#400"
 		//backgroundImage: "appbg.png"
 	});
@@ -79,34 +69,10 @@ var getData = function() {
 var makeTable = function() {
 	var tSections = [];
 	
-	var subHeaderViews = Ti.UI.createView({
-		backgroundColor: "#005",
-		height: "auto"
-	});
-	
 	for(n in games) {
-		
-		var headerLabel = Ti.UI.createLabel({
-			//text or headerTitle
-			color: "#050",
-			text: games[n].headerTitle,
-			//text: games[n].footerTitle,
-			//text: "Test",
-			font: {
-				fontSize: 20,
-				fontWeight: "bold"
-			},
-			top: 5,
-			left: 5,
-			right: 5
-		});
-		
-		subHeaderViews.add(headerLabel);
-		
 		var tableSection = Ti.UI.createTableViewSection({
-			//headerTitle: games[n].headerTitle,
-			//footerTitle: games[n].footerTitle
-			headerView: subHeaderViews
+			headerTitle: games[n].headerTitle,
+			footerTitle: games[n].footerTitle
 		});
 		
 		for(q in games[n]["gameList"]) {
@@ -116,7 +82,6 @@ var makeTable = function() {
 				hasChild: true,
 				color: "#888",
 				backgroundColor: "#511",
-				selectedBackgroundColor: "#411",
 				font: {
 					fontWeight: "bold",
 					fontFamily: "Arial"

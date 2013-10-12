@@ -42,19 +42,9 @@ var navGroup = Ti.UI.iOS.createNavigationWindow({
 
 var getData = function() {
 	var tableWindow = Ti.UI.createWindow({
-		//title: this.title,
+		title: this.title,
 		modal: true,
 		barColor: "#888",
-		titleControl: Ti.UI.createLabel({
-			text: this.title,
-			color: "#811",
-			font: {
-				fontSize: 15,
-				fontWeight: "bold"
-			}
-			//width: "auto"
-			//backgroundColor: "#fff"
-		}),
 		backgroundColor: "#400"
 		//backgroundImage: "appbg.png"
 	});
@@ -116,7 +106,6 @@ var makeTable = function() {
 				hasChild: true,
 				color: "#888",
 				backgroundColor: "#511",
-				selectedBackgroundColor: "#411",
 				font: {
 					fontWeight: "bold",
 					fontFamily: "Arial"
