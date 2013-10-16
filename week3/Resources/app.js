@@ -1,4 +1,4 @@
-Ti.UI.setBackgroundColor("#000");
+Ti.UI.setBackgroundColor("#999");
 
 var homeWindow = Ti.UI.createWindow({
 	title: "Project 3",
@@ -8,7 +8,7 @@ var homeWindow = Ti.UI.createWindow({
 });
 
 var page1Button = Ti.UI.createView({
-	backgroundColor: "#999",
+	backgroundColor: "#050",
 	height: 75,
 	top: 30,
 	right: 20,
@@ -49,4 +49,4 @@ homeWindow.add(page1Button);
 homeWindow.open();
 
 var galleryPage = require("gallery");
-//var otherPage = require("other");
+var otherPage = require("other");
