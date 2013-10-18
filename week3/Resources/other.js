@@ -44,10 +44,10 @@ var closeOtherWindow = function() {
 	otherWindow.close();
 };
 
-closeOtherButton.addEventListener("click",closeOtherWindow);
+closeOtherButton.addEventListener("click", closeOtherWindow);
 
 var openOther = function() {
 	otherWindow.open();
 };
 
-page2Button.addEventListener("click",openOther);
+page2Button.addEventListener("click", openOther);

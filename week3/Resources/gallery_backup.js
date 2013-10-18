@@ -9,8 +9,8 @@ var galleryWindow = Ti.UI.createWindow({
 	top: 20
 });
 
-var closeGallery = Ti.UI.createButton({ //rich note: needed to be create button
-	backgroundColor: "#040",
+var closeGallery = Ti.UI.createView({
+	backgroundColor: "#999",
 	height: 50,
 	bottom: 0,
 	width: galleryWindow.width,
@@ -32,7 +32,7 @@ galleryWindow.add(closeGallery);
 
 var closeGalleryWin = function() {
 	galleryWindow.close();
-	//console.log("gallery window close");
+	console.log("gallery window close");
 };
 
 var galleryView = Ti.UI.createScrollView({
@@ -41,7 +41,7 @@ var galleryView = Ti.UI.createScrollView({
 	scrollType: "vertical",
 	width: galleryWindow.width,
 	contentWidth: galleryWindow.width,
-	height: (Ti.Platform.displayCaps.platformHeight-closeGallery.height)-65,
+	hegith: (Ti.Platform.displayCaps.platformHeight-closeGallery.height)-65,
 	bottom: closeGallery.height
 });
 
@@ -84,9 +84,8 @@ var drawImages = function() {
 	};
 };
 
-//start pop-up window
 var closeButton = Ti.UI.createView({
-	backgroundColor: "#040",
+	backgroundColor: "#999",
 	height: 50,
 	bottom: 0,
 	width: galleryWindow.width
@@ -128,7 +127,6 @@ var showImage = function(imageSource) {
 	
 	closeButton.addEventListener("click", closeWindow);
 };
-//end pop-up window
 
 drawImages();
 
@@ -144,11 +142,11 @@ galleryWindow.addEventListener("click", function(evt) {
 	}*/
 	
 	if(evt.source.name === "close it") {
-		//console.log("close button");
+		console.log("close button");
 		closeGalleryWin();
 		//console.log("working");
 	}else {
-		//console.log(evt.source.name);
+		console.log(evt.source.name);
 	}
 });
 
