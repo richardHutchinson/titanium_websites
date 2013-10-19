@@ -41,7 +41,9 @@ var tableSection = Ti.UI.createTableViewSection({
 });
 
 for(n in crewList.manifest){
+	
 	console.log(crewList.manifest[n].name);
+	
 	var newRow = Ti.UI.createTableViewRow({
 		title: crewList.manifest[n].name,
 		data: crewList.manifest[n],
@@ -121,12 +123,12 @@ tableView.addEventListener("click", function(event){
 	statsContainerCourage.add(statsBarCourage);
 	
 	kerbalWindow.add(
-		kerbalImage, 
-		kerbalDescription, 
-		statsContainerStupid, 
+		kerbalImage,
+		kerbalDescription,
+		statsContainerStupid,
 		statsLabelStupid,
 		statsLabelCourage,
 		statsContainerCourage
 	);
-	currentWindow.nav.open(kerbalWindow);
+	currentWindow.nav.openWindow(kerbalWindow);
 });

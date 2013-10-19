@@ -21,6 +21,8 @@ var navGalleryText = Ti.UI.createLabel({
 	color:"#fff",
 	left: 20,
 	group: "navText",
+	//textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	//align: "center"
 	parent: navGallery
 });
 navGallery.add(navGalleryText);
@@ -97,7 +99,7 @@ navWindow.addEventListener("click", function(event){
 });
 
 //may need to add back - start
-//var mainWindow = Ti.UI.createWindow(); 
+//var mainWindow = Ti.UI.createWindow();
 //mainWindow.add(navGroup);
 //may need to add back - stop
 
