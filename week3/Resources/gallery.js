@@ -115,7 +115,7 @@ var showImage = function(imageSource) {
 	
 	var mediaLarge = Ti.UI.createImageView({
 		image: imageSource.image,
-		top: 10
+		top: 20
 	});
 	
 	detailWindow.add(closeButton);
