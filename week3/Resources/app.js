@@ -26,7 +26,7 @@ var page1ButtonLabel = Ti.UI.createLabel({
 });
 
 var page2Button = Ti.UI.createView({
-	backgroundColor: "#999",
+	backgroundColor: "#050",
 	height: 75,
 	top: page1Button.top + page1Button.height + 30,
 	right: 20,
@@ -36,7 +36,7 @@ var page2Button = Ti.UI.createView({
 
 var page2Label = Ti.UI.createLabel({
 	text: "About",
-	alight: "center",
+	align: "center",
 	font: {
 		fontSize: 20,
 		fontFamily: "Arial"
@@ -44,8 +44,10 @@ var page2Label = Ti.UI.createLabel({
 });
 
 page1Button.add(page1ButtonLabel);
+page2Button.add(page2Label);
 
 homeWindow.add(page1Button);
+homeWindow.add(page2Button);
 homeWindow.open();
 
 var galleryPage = require("gallery");

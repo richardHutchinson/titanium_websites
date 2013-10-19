@@ -11,7 +11,8 @@ var content = Ti.UI.createLabel({
 	text: "This is some random text.",
 	top: 10,
 	left: 10,
-	color: "#999",
+	top: 20,
+	color: "#000",
 	font: {
 		fontSize: 16,
 		fontFamily: "Arial"
@@ -19,7 +20,7 @@ var content = Ti.UI.createLabel({
 });
 
 var closeOtherButton = Ti.UI.createView({
-	backgroundColor: "#999",
+	backgroundColor: "#050",
 	height: 50,
 	bottom: 0,
 	width: otherWindow.width

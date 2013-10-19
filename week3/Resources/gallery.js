@@ -147,9 +147,9 @@ galleryWindow.addEventListener("click", function(evt) {
 		//console.log("close button");
 		closeGalleryWin();
 		//console.log("working");
-	}else {
+	}/*else {
 		//console.log(evt.source.name);
-	}
+	}*/
 });
 
 var openGallery = function() {
