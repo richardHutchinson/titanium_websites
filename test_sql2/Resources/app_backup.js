@@ -34,12 +34,12 @@ var win1 = Titanium.UI.createWindow({
 win1.add(tableview);
 
 //button
-var addBtn = Ti.UI.createButton({
+/*var addBtn = Ti.UI.createButton({
 	title: "Button", //note: think this should be Add Button
 	top: 10,
 	width: "auto",
 	height: "auto"
-});
+});*/
 
 // create tab group
 var tabGroup = Titanium.UI.createTabGroup({
@@ -64,7 +64,7 @@ main.open();
 
 var count = data.length;
 
-addbtn.addEventListener("click", function(e) {
+/*addbtn.addEventListener("click", function(e) {
 	var content = "List Content Appended" + count;
 	var row = Ti.UI.createTableViewRow({
 		title: content,
@@ -85,4 +85,4 @@ tableview.addEventListener("delete", function(e) {
 
 Ti.App.addEventListener("listRefresh", function(e) {
 	tableview.setData(getData());
-});
+});*/
