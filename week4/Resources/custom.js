@@ -129,7 +129,7 @@ var getPickerValue = function(evt){
 };
 
 var createStory = function(){
-	if(q1TextField.value === "" || picker.selected === 0 || q2TextField.value==="" || q3TextField.value===""){
+	if(q1TextField.value === "" || q2TextField.value==="" || q3TextField.value===""){
 		alert("You did not complete all the fields. Please fill out all the fields and try again.");
 	}else{
 		var theStory = "One day "+q1TextField.value+ " was thinking he would like to travel to "+ picker.selected+". "+ "'I know', the kerbal thought. 'I'll just "+ q2TextField.value+ " up a "+ q3TextField.value + " rocket and I'll be there in no time!' El fin.";
@@ -146,6 +146,8 @@ var createStory = function(){
 		});
 		storyWindow.add(story);
 		currentWindow.nav.openWindow(storyWindow); //rich note: changed this from open to openWindow
+		
+		console.log(q3TextField);
 	}
 };
 
