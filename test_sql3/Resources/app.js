@@ -1,23 +1,38 @@
 var win = Ti.UI.createWindow({
-	backgroundColor: "#222"
+	backgroundColor: "#589"
 });
 
-var listView = Ti.UI.createListView();
+if(Ti.UI.iOS) {
+	var listView = Ti.UI.createListView({
+		backgroundColor: "#035",
+		top: 20
+	});
+}else {
+	var listView = Ti.UI.createListView({
+		backgroundColor: "#035"
+	});
+}
+
 var dataArray = [];
 
 var db = Ti.Database.install('/sql/test','test');
 //var prodCat = Ti.UI.currentWindow.prodCat;
 var rows = db.execute('SELECT * FROM products');
-db.close();
 
 var dataSection = Ti.UI.createListSection({
-	headerTitle: 'Title'
+	headerTitle: "" + rows.fieldByName("category") + ""
 });
 
 var dataSet = [
 	{
 		properties: {
-			title: "" + rows.fieldByName("productName") + ""
+			title: "" + rows.fieldByName("productName") + "",
+			color: "#000",
+			font: {
+				fontSize: 12,
+				fontWeight: "bold"
+			},
+			backgroundColor: "#058"
 		}
 	}
 ];
@@ -57,3 +72,4 @@ var fishDataSet = [
 ];
 fishSection.setItems(fishDataSet);
 listView.appendSection(fishSection);*/
+db.close();
