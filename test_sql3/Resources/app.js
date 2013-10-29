@@ -56,7 +56,7 @@ section.items = items;
 //note: pushes the array object into the array - ex: [{[]}]
 sections.push(section);
 
-console.log(sections);
+//console.log(sections);
 
 listView.sections = sections;
 win.add(listView);
