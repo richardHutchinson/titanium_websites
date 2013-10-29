@@ -29,7 +29,6 @@ while (rows.isValidRow()) {
 
 	//console.log(item);
 	rows.next();
-	//note: used for while loop
 }
 
 // -- model complete
@@ -51,11 +50,14 @@ if (Ti.UI.iOS) {
 }
 
 var sections = [];
+//note: returns an object
 var section = Ti.UI.createListSection();
+//note: connects the array into the object
 section.items = items;
 sections.push(section);
 
-//bottom
+console.log(items);
+
 listView.sections = sections;
 win.add(listView);
 win.open();
