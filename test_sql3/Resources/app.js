@@ -34,7 +34,6 @@ while (rows.isValidRow()) {
 // -- model complete
 
 var win = Ti.UI.createWindow({
-	title : "List of Items",
 	backgroundColor : "#589"
 });
 
@@ -52,11 +51,12 @@ if (Ti.UI.iOS) {
 var sections = [];
 //note: returns an object
 var section = Ti.UI.createListSection();
-//note: connects the array into the object
+//note: connects the array to the object
 section.items = items;
+//note: pushes the array object into the array - ex: [{[]}]
 sections.push(section);
 
-console.log(items);
+console.log(sections);
 
 listView.sections = sections;
 win.add(listView);
