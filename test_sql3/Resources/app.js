@@ -14,7 +14,7 @@ while (rows.isValidRow()) {
 			title : "" + rows.fieldByName("category") + "",
 			color : "#000",
 			font : {
-				fontSize : 20,
+				fontSize : 20, //note: may want to use dpi(dp in titanium)
 				fontWeight : "bold"
 			},
 			backgroundColor : "#248"
@@ -35,21 +35,112 @@ var win = Ti.UI.createWindow({
 });
 
 //note: start form
-var formView = Ti.UI.createView({
-	height: 300,
-	width: "100%",
-	top: 0,
-	backgroundColor: "#046"
-});
+if(Ti.UI.iOS) {
+	var formView = Ti.UI.createView({
+		height: 300,
+		width: "100%",
+		top: 20,
+		backgroundColor: "#046"
+	});
+}else {
+	var formView = Ti.UI.createView({
+		height: 300,
+		width: "100%",
+		top: 0,
+		backgroundColor: "#046"
+	});
+}
 
-var textField = Ti.UI.createTextField({
-	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-	color: '#336699',
-	top: 10,
-	left: 10,
-	width: 250,
-	height: 60
-});
+//note(future addition): add textFieldDropdownCategory here
+
+if(Ti.UI.iOS) {
+	var labelQuantity = Ti.UI.createLabel({
+		text: "Quantity:",
+		color: "#000",
+		font: {
+			fontFamily: "Arial",
+			fontSize: 20,
+			fontWeight: "bold"
+		},
+		top: 10,
+		left: 10
+	});
+	
+	var textFieldQuantity = Ti.UI.createTextField({
+		width: 300,
+		height: 40,
+		color: '#336699',
+		borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+		top: 50,
+		left: 10
+	});
+	
+	var labelProductName = Ti.UI.createLabel({
+		text: "Product Name:",
+		color: "#000",
+		font: {
+			fontFamily: "Arial",
+			fontSize: 20,
+			fontWeight: "bold"
+		},
+		top: 120,
+		left: 10
+	});
+	
+	var textFieldProductName = Ti.UI.createTextField({
+		width: 300,
+		height: 40,
+		color: '#336699',
+		borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+		top: 60, //note: was 50, added 10 for spacing
+		left: 10
+	});
+}else {
+	var labelQuantity = Ti.UI.createLabel({
+		text: "Quantity:",
+		color: "#000",
+		font: {
+			fontFamily: "Arial",
+			fontSize: 20,
+			fontWeight: "bold"
+		},
+		top: 10,
+		left: 10
+	});
+	
+	var textFieldQuantity = Ti.UI.createTextField({
+		width: 300,
+		height: 60,
+		color: '#336699',
+		borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+		top: 50, //note: compensated for labelQuantity fontSize and top
+		left: 10
+	});
+	
+	var labelProductName = Ti.UI.createLabel({
+		text: "Product Name:",
+		color: "#000",
+		font: {
+			fontFamily: "Arial",
+			fontSize: 20,
+			fontWeight: "bold"
+		},
+		top: 120,
+		left: 10
+	});
+	
+	var textFieldProductName = Ti.UI.createTextField({
+		width: 300,
+		height: 60,
+		color: '#336699',
+		borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+		top: 70,
+		left: 10
+	});
+	
+	//http://docs.appcelerator.com/titanium/3.0/#!/api/Titanium.UI.Picker
+}
+
 //note: end form
 
 //note: start select data
@@ -88,7 +179,10 @@ listView.sections = sections;
 //note: adds the array object to the win object - ex: [{[{[]}]}]
 //note: end select data
 
-formView.add(textField);
+formView.add(labelQuantity);
+formView.add(textFieldQuantity);
+formView.add(labelProductName);
+//formView.add(textFieldProductName);
 selectView.add(listView);
 
 win.add(formView);
