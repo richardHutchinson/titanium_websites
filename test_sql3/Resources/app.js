@@ -12,6 +12,7 @@ while (rows.isValidRow()) {
 	var item = {
 		properties : {
 			title : "" + rows.fieldByName("category") + "",
+			height: 70,
 			color : "#000",
 			font : {
 				fontSize : 20, //note: may want to use dpi(dp in titanium)
@@ -32,6 +33,12 @@ Ti.UI.setBackgroundColor("#689");
 
 var win = Ti.UI.createWindow({
 	backgroundColor: "#579"
+});
+
+var scrollView = Ti.UI.createScrollView({
+	layout: "vertical",
+	showHorizontalScrollIndicator: true,
+	showVerticalScrollIndicator: true,
 });
 
 //note: start form
@@ -83,7 +90,7 @@ if(Ti.UI.iOS) {
 			fontSize: 20,
 			fontWeight: "bold"
 		},
-		top: 120,
+		top: 100,
 		left: 10
 	});
 	
@@ -125,7 +132,7 @@ if(Ti.UI.iOS) {
 			fontSize: 20,
 			fontWeight: "bold"
 		},
-		top: 120,
+		top: 110,
 		left: 10
 	});
 	
@@ -134,7 +141,7 @@ if(Ti.UI.iOS) {
 		height: 60,
 		color: '#336699',
 		borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-		top: 70,
+		top: 150,
 		left: 10
 	});
 	
@@ -146,7 +153,7 @@ if(Ti.UI.iOS) {
 //note: start select data
 
 var selectView = Ti.UI.createView({
-	height: "100%", //note: 300 for testing
+	//height: "100%", //note: 300 for testing - remove otherwise
 	width: "100%",
 	top: 300,
 	backgroundColor: "#555"
@@ -182,11 +189,15 @@ listView.sections = sections;
 formView.add(labelQuantity);
 formView.add(textFieldQuantity);
 formView.add(labelProductName);
-//formView.add(textFieldProductName);
+formView.add(textFieldProductName);
 selectView.add(listView);
 
-win.add(formView);
-win.add(selectView);
+scrollView.add(formView);
+scrollView.add(selectView);
+
+/*win.add(formView);
+win.add(selectView);*/
+win.add(scrollView);
 win.open();
 
 rows.close();
