@@ -2,6 +2,9 @@
 var db = Ti.Database.install('/sql/test', 'test');
 db.execute('CREATE TABLE IF NOT EXISTS products (quantity NUMERIC, productName TEXT, productId INTEGER PRIMARY KEY, category TEXT)');
 var rows = db.execute('SELECT * FROM products');
+//insert
+//update
+//delete
 
 var items = [];
 
@@ -32,6 +35,8 @@ while (rows.isValidRow()) {
 Ti.UI.setBackgroundColor("#689");
 
 var win = Ti.UI.createWindow({
+	title: "Test SQLite 3 Title",
+	fullscreen: false,
 	backgroundColor: "#579"
 });
 
@@ -90,7 +95,7 @@ if(Ti.UI.iOS) {
 			fontSize: 20,
 			fontWeight: "bold"
 		},
-		top: 100,
+		top: 110,
 		left: 10
 	});
 	
@@ -99,7 +104,7 @@ if(Ti.UI.iOS) {
 		height: 40,
 		color: '#336699',
 		borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-		top: 60, //note: was 50, added 10 for spacing
+		top: 150, //note: was 50, added 10 for spacing
 		left: 10
 	});
 }else {
@@ -153,21 +158,20 @@ if(Ti.UI.iOS) {
 //note: start select data
 
 var selectView = Ti.UI.createView({
-	//height: "100%", //note: 300 for testing - remove otherwise
+	height: 200,
 	width: "100%",
-	top: 300,
-	backgroundColor: "#555"
+	//backgroundColor: "#555"
 });
 
 if(Ti.UI.iOS) {
 	var listView = Ti.UI.createListView({
-		height: "100%",
-		backgroundColor: "#035"
+		height: "100%"
+		//backgroundColor: "#035"
 	});
 }else {
 	var listView = Ti.UI.createListView({
-		heght: "100%",
-		backgroundColor: "#035"
+		heght: "100%"
+		//backgroundColor: "#035"
 	});
 }
 
