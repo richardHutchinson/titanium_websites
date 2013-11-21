@@ -151,6 +151,13 @@ if(Ti.UI.iOS) {
 	});
 	
 	//http://docs.appcelerator.com/titanium/3.0/#!/api/Titanium.UI.Picker
+	
+	var submitButton = Ti.UI.createButton({
+		title: "Submit",
+		width: 50,
+		height: 20,
+		backgroundColor: "#494"
+	});
 }
 
 //note: end form
@@ -194,6 +201,8 @@ formView.add(labelQuantity);
 formView.add(textFieldQuantity);
 formView.add(labelProductName);
 formView.add(textFieldProductName);
+formView.add(submitButton);
+
 selectView.add(listView);
 
 scrollView.add(formView);
