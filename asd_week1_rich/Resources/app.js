@@ -1,15 +1,28 @@
-// this sets the background color of the master UIView (when there are no windows/tab groups on it)
 Titanium.UI.setBackgroundColor('#000');
 
 // create tab group
 var myData = require('data');
+
 var tabGroup = Titanium.UI.createTabGroup();
-var table = Ti.UI.createTableView();
+
+// create base UI tab and root window
+var win1 = Titanium.UI.createWindow({
+	title : 'Tab 1',
+	backgroundColor : '#fff'
+});
+var tab1 = Titanium.UI.createTab({
+	icon : 'KS_nav_views.png',
+	title : 'Tab 1',
+	window : win1
+});
+
 var tableData = [];
 
-//console.log(myData);
+var table = Ti.UI.createTableView({
+	data: tableData
+});
 
-function createObjectRows() {
+//function createObjectRows() {
 	for ( i = 0; i < myData.data.length; i++) {
 		
 		var row = Ti.UI.createTableViewRow({
@@ -29,7 +42,6 @@ function createObjectRows() {
 			touchEnabled : false
 		});
 		
-		//rich note: would one need to add the eventListener here and then put that variable into the row.add(); call below?
 		row.addEventListener("click",function() {
 			//console.log(e);
 			//console.log(myData.data[0].name);
@@ -50,7 +62,11 @@ function createObjectRows() {
 				text: myData.data[0].announce(),
 				color: "#000",
 				height: "auto",
-				top: 100
+				top: 50
+			});
+			
+			tab1.open(otherWindow, {
+				animated: true
 			});
 			
 			otherWindow.add(areaLabel);
@@ -62,22 +78,10 @@ function createObjectRows() {
 		row.add(nameLabel);
 		tableData.push(row);
 		
-		//console.log(myData.data[i]); //rich note: this will return the test1.name = "Object 1"; in the data.js file
 	};
-};
+//};
 
-createObjectRows();
-
-// create base UI tab and root window
-var win1 = Titanium.UI.createWindow({
-	title : 'Tab 1',
-	backgroundColor : '#fff'
-});
-var tab1 = Titanium.UI.createTab({
-	icon : 'KS_nav_views.png',
-	title : 'Tab 1',
-	window : win1
-});
+//createObjectRows();
 
 table.setData(tableData);
 
