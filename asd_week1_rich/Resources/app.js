@@ -42,16 +42,18 @@ function createObjectRows() {
 			touchEnabled: false
 		});
 		
-		row.addEventListener("click",function() {
-			//console.log(e);
+		row.addEventListener("click",function(e) {
+			//console.log("test");
 			//console.log(myData.data[0].name);
+			//console.log(myData.data[e.index].area());
 			
 			var otherWindow = Ti.UI.createWindow({
 				backgroundColor: "#555"
 			});
 			
 			var areaLabel = Ti.UI.createLabel({
-				text: myData.data[0].area(),
+				//text: myData.data[0].area(), //rich note: this is used for testing one specific value
+				text: myData.data[e.index].area(),
 				color: "#000",
 				height: "auto",
 				backgroundColor: "#494",
@@ -59,7 +61,7 @@ function createObjectRows() {
 			});
 			
 			var announceLabel = Ti.UI.createLabel({
-				text: myData.data[0].announce(),
+				text: myData.data[e.index].announce(),
 				color: "#000",
 				height: "auto",
 				top: 50
