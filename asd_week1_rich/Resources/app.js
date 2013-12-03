@@ -1,19 +1,19 @@
-Titanium.UI.setBackgroundColor('#000');
+Titanium.UI.setBackgroundColor("#000");
 
 // create tab group
-var myData = require('data');
+var myData = require("data");
 
 var tabGroup = Titanium.UI.createTabGroup();
 
 // create base UI tab and root window
 var win1 = Titanium.UI.createWindow({
-	title : 'Tab 1',
-	backgroundColor : '#fff'
+	title: "Tab 1",
+	backgroundColor: "#fff"
 });
 var tab1 = Titanium.UI.createTab({
-	icon : 'KS_nav_views.png',
-	title : 'Tab 1',
-	window : win1
+	icon: "KS_nav_views.png",
+	title: "Tab 1",
+	window: win1
 });
 
 var tableData = [];
@@ -22,24 +22,24 @@ var table = Ti.UI.createTableView({
 	data: tableData
 });
 
-//function createObjectRows() {
-	for ( i = 0; i < myData.data.length; i++) {
+function createObjectRows() {
+	for (i = 0; i < myData.data.length; i++) {
 		
 		var row = Ti.UI.createTableViewRow({
-			height : '60dp'
+			height: "60dp"
 		});
 
 		var nameLabel = Ti.UI.createLabel({
-			text : myData.data[i].name,
-			font : {
-				fontSize : '24dp',
-				fontWeight : 'bold'
+			text: myData.data[i].name,
+			font: {
+				fontSize: "24dp",
+				fontWeight: "bold"
 			},
-			height : 'auto',
-			left : '10dp',
-			top : '5dp',
-			color : '#000',
-			touchEnabled : false
+			height: "auto",
+			left: "10dp",
+			top: "5dp",
+			color: "#000",
+			touchEnabled: false
 		});
 		
 		row.addEventListener("click",function() {
@@ -72,16 +72,15 @@ var table = Ti.UI.createTableView({
 			otherWindow.add(areaLabel);
 			otherWindow.add(announceLabel);
 			
-			otherWindow.open();
 		});
 
 		row.add(nameLabel);
 		tableData.push(row);
 		
 	};
-//};
+};
 
-//createObjectRows();
+createObjectRows();
 
 table.setData(tableData);
 
