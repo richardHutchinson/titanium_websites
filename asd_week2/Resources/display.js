@@ -64,7 +64,10 @@ wowRemoteResponse = function() {
 	});
 
 	row.addEventListener("click", function(e) {
+		//rich note: the info does not do anything - it is an empty array
+		console.log(e.source.info);
 		alert(e.source.info.name + "\n" + e.source.info.feed[0]);
+		//alert(e.source.info.name + "\n" + e.source.info.feed[0]);
 	});
 
 	row.add(nameLabel);
