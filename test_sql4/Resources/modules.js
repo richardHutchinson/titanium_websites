@@ -1,9 +1,8 @@
-// this sets the background color of the master UIView (when there are no windows/tab groups on it)
-Ti.UI.setBackgroundColor('#000');
+var win = Ti.UI.currentWindow;
 
 //rich note: may move
 //Open SQLite DB, if does not exist, create one.
-/*var db = Ti.Database.open('users');
+var db = Ti.Database.open('users');
 db.execute('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, user TEXT)');
 
 var data = getRowData();
@@ -12,27 +11,17 @@ var tableView = Ti.UI.createTableView({
 	data : data,
 	editable : false,
 	top : 50,
-});*/
-
-// create tab group
-var tabGroup = Ti.UI.createTabGroup();
-
-//
-// create base UI tab and root window
-//
-var win1 = Ti.UI.createWindow({
-	title : 'Form',
-	backgroundColor : '#fff'
 });
 
-var tab1 = Ti.UI.createTab({
-	icon : 'KS_nav_views.png',
-	title : 'Form',
-	window : win1
+// The Edit Window
+var editWindow = Ti.UI.createWindow({
+	title : 'This is a test',
+	backgroundColor : '#fff',
+	layout : 'vertical'
 });
 
 //Create Input Fields for form
-/*var fnameField = Ti.UI.createTextField({
+var fnameField = Ti.UI.createTextField({
 	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	color : '#336699',
 	top : 10,
@@ -59,10 +48,10 @@ var submitBtn = Ti.UI.createButton({
 	width : 450,
 	height : 50,
 	title : "Submit"
-});*/
+});
 
 //Click event for submit button.
-/*submitBtn.addEventListener('click', function(e) {
+submitBtn.addEventListener('click', function(e) {
 
 	//Make sure required fields are entered, else error.
 	//This should totally be a function.
@@ -96,16 +85,9 @@ var submitBtn = Ti.UI.createButton({
 		//Let the user know it has been saved
 		alert(saveData + ' has been saved!');
 	}
-});*/
-
-// The Edit Window
-var editWindow = Ti.UI.createWindow({
-	title : 'This is a test',
-	backgroundColor : '#fff',
-	layout : 'vertical'
 });
 
-/*var editfname = Ti.UI.createTextField({
+var editfname = Ti.UI.createTextField({
 	borderStyle : Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	color : '#336699',
 	width : 350,
@@ -132,33 +114,19 @@ var cancelButton = Ti.UI.createButton({
 	title : 'Cancel',
 	height : 50,
 	width : 350
-});*/
+});
 
-/*editWindow.add(editfname);
+editWindow.add(editfname);
 editWindow.add(editlname);
 editWindow.add(saveButton);
-editWindow.add(cancelButton);*/
+editWindow.add(cancelButton);
 
-/*win1.add(fnameField);
+win1.add(fnameField);
 win1.add(lnameField);
-win1.add(submitBtn);*/
-
-//
-// create controls tab and root window
-//
-var win2 = Ti.UI.createWindow({
-	title : 'Data',
-	backgroundColor : '#fff',
-	layout : 'vertical'
-});
-var tab2 = Ti.UI.createTab({
-	icon : 'KS_nav_ui.png',
-	title : 'Data',
-	window : win2
-});
+win1.add(submitBtn);
 
 //rich note: this moves too
-/*function getRowData() {
+function getRowData() {
 	var newdata = [];
 	//Loop through data for window #2
 	var rows = db.execute('SELECT * FROM users');
@@ -178,20 +146,19 @@ var tab2 = Ti.UI.createTab({
 	}
 
 	return newdata;
-}*/
+}
 
 //Create options dialog box
-/*var opts = {
+var opts = {
 	cancel : 2,
 	options : ['Edit', 'Delete', 'Cancel'],
 	selectedIndex : 2,
 	destructive : 1,
 	title : 'Delete File?'
-};*/
+};
 
 //Click event for options dialog
-/*tableView.addEventListener('click', function(e) {
-
+tableView.addEventListener('click', function(e) {
 	//Grab rowData stored in the row
 	var id = e.rowData.id;
 	var fname = e.rowData.first_name;
@@ -270,17 +237,6 @@ var tab2 = Ti.UI.createTab({
 		}
 	});
 	dialog.show();
-});*/
+});
 
-//win2.add(tableView); //rich note: this moves and changes on other page
-
-//
-//  add tabs
-//
-tabGroup.addTab(tab1);
-tabGroup.addTab(tab2);
-
-// open tab group
-tabGroup.open(); 
-
-var modulesWindow = require("modules");
+win2.add(tableView);
